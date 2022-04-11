@@ -20,7 +20,8 @@ public class AuthenticationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-
+        
+       
             // code that is executed before the servlet
             HttpServletRequest httpRequest = (HttpServletRequest)request;
             HttpSession session = httpRequest.getSession();
@@ -29,7 +30,7 @@ public class AuthenticationFilter implements Filter {
             
             if (email == null || password.isEmpty()) {
               //  HttpServletResponse httpResponse = (HttpServletResponse)response;
-                request.setAttribute("message", "email address and/or password is missing. Please try again. ");
+                httpRequest.setAttribute("message", "email address and/or password is missing. Please try again. ");
               //  httpResponse.sendRedirect("login");
                 request.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);  
                 return;

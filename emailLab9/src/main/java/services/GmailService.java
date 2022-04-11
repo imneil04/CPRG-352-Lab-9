@@ -47,7 +47,7 @@ public class GmailService {
     }
 
     public static void sendMail(String to, String subject, String body, boolean bodyIsHTML) throws MessagingException, NamingException {
-        Context env = (Context) new InitialContext().lookup("java:comp/env");
+       Context env = (Context) new InitialContext().lookup("java:comp/env");
        final String username = (String) env.lookup("webmail-username");
        final String password = (String) env.lookup("webmail-password");
 

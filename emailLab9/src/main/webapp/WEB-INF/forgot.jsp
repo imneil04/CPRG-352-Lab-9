@@ -7,9 +7,10 @@
     </head>
     <body>
         <h2>Forgot Password</h2>
+        <p>${test}</p>
         <form action="forgot" method="post">
             <label for="email">Email Address: </label>
-            <input type="email" name="email" />
+            <input type="email" name="email" required />
             <br />
             <input type="Submit" value="Submit">
             <a href="login">Back to Login</a>

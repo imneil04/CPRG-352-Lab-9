@@ -42,7 +42,8 @@ public class LoginServlet extends HttpServlet {
         User user = as.login(email, password, path);
         
         if (user == null) {
-            request.setAttribute("email", email);
+         // request.setAttribute("email", email);
+            request.setAttribute("message", "email address and/or password is missing. Please try again. ");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }

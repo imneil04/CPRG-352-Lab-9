@@ -35,7 +35,28 @@ public class AccountService {
         return null;
     }
     
-    public User resetPassword(String email, String path, String url){
-        return null;
+    public boolean forgotPassword(String email, String path){
+        
+        UserDB userDB = new UserDB();
+        
+        try{
+          User user = userDB.get(email);
+          if(email.equals(user.getEmail())) {
+              
+              String to = user.getEmail();
+              String subject = "New Password";
+              String template = path + "/emailtemplates/forgotpassword.html";
+              
+              HashMap<String, String> tags = new HashMap<>();
+              tags.put("firstname", user.getFirstName());
+              tags.put("lastname", user.getLastName());
+             // tags.put("date", (new java.util.Date()).toString());
+             
+          }
+        }catch(Exception ex) {
+            
+        }
+        
+     return true;
     }
 }
